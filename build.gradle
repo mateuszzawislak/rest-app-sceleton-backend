@@ -1,0 +1,38 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.0.RELEASE")
+	}
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+compileJava {
+	options.encoding = 'UTF-8'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'org.springframework.boot:spring-boot-starter-web:1.3.0.RELEASE'
+	compile("org.springframework.boot:spring-boot-devtools:1.3.0.RELEASE")
+}
+
+jar {
+	manifest {
+		attributes (
+			'Built-By': System.properties['user.name'],
+			'Implementation-Title': project.name,
+			'Implementation-Version': new Date().format('yyyyMMdd-HHmmss')
+		)
+	}
+}
