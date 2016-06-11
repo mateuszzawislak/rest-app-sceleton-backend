@@ -1,0 +1,15 @@
+#header()
+
+<ul>
+	<li>
+		<span><i>Custom model attribute</i>: $time</span>
+	</li>
+	<li>
+		<span><i>Date tool</i>: $DATE_TOOL.format('medium_date', $time)</span>
+	</li>
+	<li>
+		<span><i>Static model attribute</i>: $STATIC_ATTRIBUTE</span>
+	</li>
+</ul>
+
+#footer()

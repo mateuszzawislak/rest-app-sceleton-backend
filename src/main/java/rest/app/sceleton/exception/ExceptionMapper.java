@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -25,6 +26,8 @@ public class ExceptionMapper {
 		} else if (exception instanceof HttpMessageNotReadableException) {
 			return new ResponseEntity<ExceptionDto>(serializeException((HttpMessageNotReadableException) exception),
 					HttpStatus.BAD_REQUEST);
+		} else if (exception instanceof AccessDeniedException) {
+			return new ResponseEntity<ExceptionDto>(new ExceptionDto(), HttpStatus.FORBIDDEN);
 		}
 
 		logger.error("Server error: {}", exception);

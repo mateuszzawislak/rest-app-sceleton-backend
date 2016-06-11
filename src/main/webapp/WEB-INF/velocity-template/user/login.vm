@@ -1,0 +1,24 @@
+#header()
+
+<h3>Login with Username and Password</h3>
+
+<form id="login-form" action="$LINK_TOOL.relative('user/login')" method="post">
+	<table>
+		<tr>
+			<td>Email:</td><td><input type='text' name='email' value='' autofocus></td>
+		</tr>
+		<tr>
+			<td>Password:</td><td><input type='password' name='password'/></td>
+		</tr>
+		#if ($error)
+			<tr>
+				<td colspan='2' style="color:red;"><span>Invalid email or password.</span></td>
+			</tr>
+		#end
+		<tr>
+			<td colspan='2'><input name="submit" type="submit" value="Login"/></td>
+		</tr>
+	</table>
+</form>
+
+#footer()

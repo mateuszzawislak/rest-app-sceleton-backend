@@ -1,0 +1,39 @@
+#macro(htmlHead)
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Spring Web App Skeleton</title>
+
+</head>
+#end
+
+#macro(header)
+<!doctype html>
+<html>
+	#htmlHead()
+
+<body>
+	<ul>
+		<li><a href="$LINK_TOOL.relative('/')">Home</a></li>
+	</ul>
+
+	#if ($!USER)
+		Logged as: $!USER.email
+		<a href="$LINK_TOOL.relative('user/logout')">Logout</a>
+	#else
+		<div class="header-login">
+			<a href="$LINK_TOOL.relative('user/login')">Login</a> / <a href="$LINK_TOOL.relative('user/register')">Register</a>
+		</div>
+	#end
+#end
+
+#macro(footer)
+	<footer class="site-footer">
+		<div class="pull-left">
+			&copy; $!DATE_TOOL.format("YYYY", $!DATE_TOOL.getSystemDate()) Spring Web App Skeleton
+		</div>
+	</footer>
+
+</body>
+</html>
+#end

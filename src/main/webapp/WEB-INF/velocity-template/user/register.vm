@@ -1,0 +1,19 @@
+#header()
+
+<h3>Register</h3>
+
+<form id="register-form" action="$LINK_TOOL.relative('user/register')" method="post">
+	<table>
+		<tr>
+			<td>Email:</td><td><input type='text' name='email' value='' autofocus></td>
+		</tr>
+		<tr>
+			<td>Password:</td><td><input type='password' name='password'/></td>
+		</tr>
+		<tr>
+			<td colspan='2'><input name="submit" type="submit" value="TODO"/></td>
+		</tr>
+	</table>
+</form>
+
+#footer()
