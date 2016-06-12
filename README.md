@@ -16,6 +16,11 @@ Application is integrated with [MySQL] Database.
 gradle clean build
 ```
 
+#### ... and that's it! Check it out:
+```sh
+http://localhost:8082/spring-web-app-skeleton/
+```
+
    [Gradle]: <http://gradle.org/>
    [Spring Boot]: <http://projects.spring.io/spring-boot/>
    [Spring Security]: <http://projects.spring.io/spring-security/>
