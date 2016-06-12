@@ -1,5 +1,6 @@
 package spring.web.app.skeleton.user.model;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -14,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OrderBy;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 @Entity
@@ -40,6 +43,12 @@ public class User {
 	@JoinTable(name = "user_to_user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	@OrderBy("name")
 	private Set<UserRole> roles;
+
+	@Column(name = "created_at")
+	private Date createdAt;
+
+	@Column(name = "modified_at")
+	private Date modifiedAt;
 
 	public Long getId() {
 		return id;
@@ -71,6 +80,33 @@ public class User {
 
 	public void setRoles(Set<UserRole> roles) {
 		this.roles = roles;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Date getModifiedAt() {
+		return modifiedAt;
+	}
+
+	public void setModifiedAt(Date modifiedAt) {
+		this.modifiedAt = modifiedAt;
+	}
+
+	@PrePersist
+	private void prePersist() {
+		createdAt = new Date();
+		modifiedAt = new Date();
+	}
+
+	@PreUpdate
+	private void preUpdate() {
+		modifiedAt = new Date();
 	}
 
 }
