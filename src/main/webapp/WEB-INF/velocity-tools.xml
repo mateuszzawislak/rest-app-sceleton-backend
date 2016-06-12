@@ -35,7 +35,7 @@
 		<key>LINK_TOOL</key>
 		<scope>request</scope>
 		<class>org.apache.velocity.tools.generic.LinkTool</class>
-		<parameter name="uri" value="rest-app-sceleton/" />
+		<parameter name="uri" value="spring-web-app-skeleton/" />
 	</tool>
 	<tool>
 		<key>SNUMBER_TOOL</key>
