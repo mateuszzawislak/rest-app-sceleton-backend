@@ -1,6 +1,7 @@
 package spring.web.app.skeleton.user.service;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -47,6 +48,9 @@ public class UserService {
 		User user = optUser.get();
 		if (!passwordEncrypter.check(password, user.getPassword()))
 			throw new NoPermissionException();
+
+		user.setLastLoggedAt(new Date());
+		em.merge(user);
 
 		return user;
 	}

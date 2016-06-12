@@ -44,6 +44,9 @@ public class User {
 	@OrderBy("name")
 	private Set<UserRole> roles;
 
+	@Column(name = "last_logged_at")
+	private Date lastLoggedAt;
+
 	@Column(name = "created_at")
 	private Date createdAt;
 
@@ -80,6 +83,14 @@ public class User {
 
 	public void setRoles(Set<UserRole> roles) {
 		this.roles = roles;
+	}
+
+	public Date getLastLoggedAt() {
+		return lastLoggedAt;
+	}
+
+	public void setLastLoggedAt(Date lastLoggedAt) {
+		this.lastLoggedAt = lastLoggedAt;
 	}
 
 	public Date getCreatedAt() {
