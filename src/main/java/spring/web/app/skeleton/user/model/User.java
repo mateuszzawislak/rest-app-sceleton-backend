@@ -30,13 +30,13 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", nullable = false, updatable = false)
+	@Column(nullable = false, updatable = false)
 	private Long id;
 
-	@Column(name = "email", nullable = false, unique = true)
+	@Column(nullable = false, unique = true)
 	private String email;
 
-	@Column(name = "password", nullable = false)
+	@Column(nullable = false)
 	private String password;
 
 	@ManyToMany(fetch = FetchType.LAZY)
@@ -47,11 +47,11 @@ public class User {
 	@Column(name = "last_logged_at")
 	private Date lastLoggedAt;
 
-	@Column(name = "created_at")
-	private Date createdAt;
-
 	@Column(name = "modified_at")
 	private Date modifiedAt;
+
+	@Column(name = "created_at")
+	private Date createdAt;
 
 	public Long getId() {
 		return id;

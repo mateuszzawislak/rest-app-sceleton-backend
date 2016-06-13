@@ -62,12 +62,12 @@ public class UserController {
 
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(method = RequestMethod.GET, value = "list")
-	public ResponseEntity<TableDto<UserDto>> list(@RequestParam(value = "pageIndex", defaultValue = "0") Integer pageIndex,
-			@RequestParam(value = "pageSize", defaultValue = "30") Integer pageSize) {
-		List<User> users = userService.list(pageIndex, pageSize, null, null);
+	public ResponseEntity<TableDto<UserDto>> list(@RequestParam(value = "firstResult", defaultValue = "0") Integer firstResult,
+			@RequestParam(value = "maxResults", defaultValue = "30") Integer maxResults) {
+		List<User> users = userService.list(firstResult, maxResults, null, null);
 		Long count = userService.count();
 
-		return new ResponseEntity<>(new TableDto<UserDto>(new MetaDto(pageIndex, pageSize, count),
+		return new ResponseEntity<>(new TableDto<UserDto>(new MetaDto(firstResult, maxResults, count),
 				users.stream().map(UserSerializer::toDto).collect(Collectors.toList())), HttpStatus.OK);
 	}
 

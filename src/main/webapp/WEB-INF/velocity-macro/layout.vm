@@ -21,15 +21,24 @@
 		Logged as: $!USER.email
 		<a href="$LINK_TOOL.relative('user/logout')">Logout</a>
 	#else
-		<div class="header-login">
+		<div>
 			<a href="$LINK_TOOL.relative('user/login')">Login</a> / <a href="$LINK_TOOL.relative('user/register')">Register</a>
 		</div>
 	#end
 #end
 
 #macro(footer)
-	<footer class="site-footer">
-		<div class="pull-left">
+	<div>
+		<p>INFORMATIONS:</p>
+		<ul>
+			<li><a href="$LINK_TOOL.relative('act/contact')">Contact</a></li>
+			<li><a href="$LINK_TOOL.relative('act/career')">Career</a></li>
+			<li><a href="$LINK_TOOL.relative('act/faq')">FAQ</a></li>
+		</ul>
+	</div>
+
+	<footer>
+		<div>
 			&copy; $!DATE_TOOL.format("YYYY", $!DATE_TOOL.getSystemDate()) Spring Web App Skeleton
 		</div>
 	</footer>
