@@ -11,6 +11,11 @@ Project presents a skeleton of a web application built with:
 
 Application is integrated with [MySQL] Database.
 
+### Functionalities
+
+* Login/register users,
+* Example CRUD.
+
 ### Usage
 ```sh
 gradle clean build
